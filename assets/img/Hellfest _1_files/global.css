@@ -1,0 +1,16 @@
+@import "normalize.css" screen;
+@import "vars.css" screen;
+@import "fonts.css" screen;
+@import "body.css" screen;
+@import "loader.css" screen;
+@import "header.css" screen;
+@import "footer.css" screen;
+@import "overlay.css" screen;
+@import "menu.css" screen;
+@import "home.css" screen;
+@import "button.css" screen;
+@import "slider.css" screen;
+@import "pagepost.css" screen;
+
+@import "responsive.css" screen;
+@import "animations.css" screen;

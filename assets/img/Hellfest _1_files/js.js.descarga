@@ -1,0 +1,72 @@
+$(function () {
+
+	// MENU //
+	'use strict';
+
+	$('.menu__item').on("mouseenter", function () {
+		let id = $(this).data('id');
+		$('#' + id + '-bg__img').addClass('active');
+	});
+	$('.menu__item').on("mouseleave", function () {
+		$('.menu-img img').removeClass('active');
+	});
+	$('#toggle').click(function() {
+		$(this).toggleClass('active');
+		$('#overlay').toggleClass('open');
+		$('body').toggleClass('scroll-stop');
+	});
+	// MENU //
+
+	// CAROUSEL //
+		$('.news-carousel').slick({
+		centerMode: true,
+		slidesToShow: 1,
+		autoplay: false,
+		infinite: false,
+		adaptiveHeight: false,
+        prevArrow:"<button type='button' class='slick-prev'></button>",
+        nextArrow:"<button type='button' class='slick-next'></button>",
+
+		});
+	// CAROUSEL //
+
+	// RESPONSIVE VID //
+	// For embed YouTube videos
+		$('iframe[src*="youtube.com"]').wrap(
+		'<div class="embed-responsive embed-responsive-16by9"></div>'
+		);
+		$('iframe[src*="youtube.com"]').addClass("embed-responsive-item");
+
+		// For embed Vimeo videos
+		$('iframe[src*="vimeo.com"]').wrap(
+		'<div class="embed-responsive embed-responsive-16by9"></div>'
+		);
+		$('iframe[src*="vimeo.com"]').addClass("embed-responsive-item");
+
+		// For SlideShare slides
+		$('iframe[src*="slideshare.net"]').wrap(
+		'<div class="embed-responsive embed-responsive-16by9"></div>'
+		);
+		$('iframe[src*="slideshare.net"]').addClass("embed-responsive-item");
+	// RESPONSIVE VID //
+
+});
+
+
+    // ARROW FADE //
+    function valBetween(v, min, max) {
+        return (Math.min(max, Math.max(min, v)));
+    }
+  
+    $(document).scroll(function(){
+        var containerTopToPageTop = $('#firstScroll').offset().top;
+        var windowTopToPageTop = $(window).scrollTop();
+        var windowInnerHeight = window.innerHeight;
+        var heroLeftOnScreen = containerTopToPageTop - windowTopToPageTop;
+        var heroLeftOnScreenFrom1To0 = heroLeftOnScreen / windowInnerHeight;
+        var heroLeftOnScreenFrom1To0Remainder = 1 - heroLeftOnScreenFrom1To0;
+    
+        document.getElementById("downArrow").style.opacity= heroLeftOnScreenFrom1To0 - heroLeftOnScreenFrom1To0Remainder;
+    });
+   // ARROW FADE //
+   
